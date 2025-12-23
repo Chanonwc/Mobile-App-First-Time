@@ -52,6 +52,8 @@ class ProfileScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
               ),
+
+              
               onPressed: () {}, 
               child: Text("Lamine.yamal@email.com"),
               ),
