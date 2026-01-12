@@ -93,148 +93,76 @@ Widget build(BuildContext context) {
                           backgroundColor: primaryColor,
                           child: Icon(Icons.edit, size: 18, color: LightBgColor),
                         ),
+                        
                       ),
                     ],
                   ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Text('Lamine Yamal', style: headerStyle),
 
-            SizedBox(height: 10),
+            SizedBox(height: 3),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: LightBgColor2),
 
               onPressed: () {},
               child: Text("Lamine.yamal@email.com", style: bodyStyle),
             ),
-
-            const SizedBox(height: 8),
+      SizedBox(height: 8)  ,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: LightBgColor2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.edit, color: primaryColor),
-                    Text("Edit Profile", style: bodyStyle),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios, color: primaryColor),
-                  ],
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: LightBgColor2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.lock_outline, color: primaryColor),
-                    Text("Add Pin", style: bodyStyle),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios, color: primaryColor),
-                  ],
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: LightBgColor2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.settings, color: primaryColor),
-                    Text("Settings", style: bodyStyle),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios, color: primaryColor),
-                  ],
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: LightBgColor2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.person_add, color: primaryColor),
-                    Text("invite friends", style: bodyStyle),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios, color: primaryColor),
-                  ],
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.logout, color: LightBgColor2),
-                    Text(
-                      "Logout",
-                      style: TextStyle(
-                        color: LightBgColor2,
-                        fontFamily: GoogleFonts.oswald().fontFamily,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 15,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          _buildMenuTile(
+                            icon: Icons.edit,
+                            title: "Edit Profile",
+                            // isPrimary: true,
+                          ),
+                          const Divider(height: 1, indent: 5, endIndent: 20),
+                          _buildMenuTile(
+                            icon: Icons.lock_outline,
+                            title: "Add PIN",
+                          ),
+                          const Divider(height: 1, indent: 5, endIndent: 20),
+                          _buildMenuTile(
+                            icon: Icons.settings,
+                            title: "Settings",
+                          ),
+                          const Divider(height: 1, indent: 20, endIndent: 20),
+                          _buildMenuTile(
+                            icon: Icons.people_outline,
+                            title: "Invite Friends",
+                          ),
+                          const Divider(height: 1, indent: 20, endIndent: 20),
+                          _buildMenuTile(
+                            icon: Icons.logout,
+                            title: "Logout",
+                            isLogout: true,
+                          ),
+                        ],
                       ),
                     ),
-                    Spacer(),
-                  ],
-                ),
-              ),
-            ),
-          ],
+                  ),
+                  const SizedBox(height: 120), // เพิ่มพื้นที่เผื่อ Bottom Nav
+                ],
               ),
             ),
           ),
         ),
       ],
-    ),
+      ),
+
       bottomNavigationBar: Padding(
   padding: const EdgeInsets.all(10.0),
   child: Container(
@@ -265,4 +193,40 @@ Widget build(BuildContext context) {
       ), // ปิด Padding
     ); // ปิด Scaffold
   } // ปิด build
+
+Widget _buildMenuTile({
+    required IconData icon,
+    required String title,
+    bool isPrimary = false,
+    bool isLogout = false,
+  }) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 2),
+      decoration: BoxDecoration(
+        color: isPrimary ? LightBgColor2 : Colors.transparent,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: ListTile(
+        leading: Icon(
+          icon,
+          color: isPrimary ? Colors.white : (isLogout ? LightBgColor2 : Colors.grey[700]),
+        ),
+        title: Text(
+          title,
+          style: bodyStyle.copyWith(
+            color: isPrimary ? Colors.white : (isLogout ? LightBgColor2 : Colors.black87),
+            fontWeight: isPrimary ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          size: 14,
+          color: isPrimary ? Colors.white : Colors.grey,
+        ),
+        onTap: () {
+          // ใส่ Logic การเปลี่ยนหน้าตรงนี้
+        },
+      ),
+    );
+  }
 }
