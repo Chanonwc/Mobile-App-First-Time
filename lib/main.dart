@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-// import 'package:webboradkakkak/screen/Home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/profile_screen.dart';
+import 'screen/intro_screen.dart';
 
-void main() {
+
+bool seen = false;
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+  seen = prefs.getBool('seen') ?? false;
+
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const ProfileScreen(),
+        home: seen == true ? ProfileScreen() : IntroScreen(),
     );
   }
 }
