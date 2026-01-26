@@ -11,21 +11,26 @@ import 'package:webboradkakkak/screen/profile_screen.dart';
 class IntroScreen extends StatelessWidget {
    IntroScreen({super.key});
 
+  // // เพิ่มไว้ด้านบนสุดของ build หรือใน class
+  // final Color barcaBlue = const Color(0xFF004D98);
+  // final Color barcaRed = const Color(0xFFA50044);
+  // final Color barcaGold = const Color(0xFFEDBB00);
+
   final List<PageViewModel> pages = [
     PageViewModel(
-      title: "Welcome to WebBoard Kakkak",
-      body: "Your gateway to seamless online learning and collaboration.",
+      title: "Welcome to Barcelona FC",
+      body: "Your gateway to the world of football.",
       image: Image.asset('lib/images/page-1.png'),
-      decoration: const PageDecoration(
-        titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      decoration:  PageDecoration(
+        titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: const Color(0xFF004D98)),
         bodyTextStyle: TextStyle(fontSize: 16),
       ),
     
     ),
 
      PageViewModel(
-      title: "What is WebBoard Kakkak?",
-      body: "WebBoard Kakkak is a web-based learning platform that provides a user-friendly interface for students to access and collaborate on online courses. It offers a range of features, including course creation, assignment submission, discussion forums, and interactive quizzes, making it an ideal platform for educational purposes.",
+      title: "What is Barcelona FC?",
+      body: "Barcelona FC is a world-renowned football club based in Barcelona, Spain. It is one of the most successful and popular football clubs in the world.",
       image: Image.asset('lib/images/page-2.png'),
       decoration: const PageDecoration(
         titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -33,8 +38,8 @@ class IntroScreen extends StatelessWidget {
       ),
     ),
      PageViewModel(
-      title: "Why WebBoard Kakkak?",
-      body: "WebBoard Kakkak offers several advantages over traditional learning platforms, such as its user-friendly interface, interactive features, and seamless integration with online courses. It also provides a secure and reliable platform for students to access and collaborate on course materials.",
+      title: "Why Barcelona FC?",
+      body: "Barcelona FC offers several advantages over traditional football clubs, such as its user-friendly interface, interactive features, and seamless integration with online courses. It also provides a secure and reliable platform for students to access and collaborate on course materials.",
       image: Image.asset('lib/images/page-3.png'),
       decoration: const PageDecoration(
         titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -49,8 +54,8 @@ class IntroScreen extends StatelessWidget {
       body: IntroductionScreen(
         pages: pages,
         dotsDecorator: DotsDecorator(
-          color: Colors.blue,
-          activeColor: Colors.red,
+          color:const Color(0xFFBDBDBD),
+          activeColor: const Color(0xFFEDBB00),
           size: const Size(10, 10),
           activeSize: const Size(15, 15),
           spacing: EdgeInsets.all(0.8),

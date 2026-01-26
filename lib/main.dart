@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/profile_screen.dart';
 import 'screen/intro_screen.dart';
-
+import 'screen/Home_screen.dart';
 
 bool seen = false;
 void main() async{
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-        home: seen == true ? ProfileScreen() : IntroScreen(),
+        home: seen == true ? HomeScreen() : IntroScreen(),
     );
   }
 }
