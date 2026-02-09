@@ -14,6 +14,13 @@ TextStyle headerStyle = TextStyle(
   color: primaryColor,
 );
 
+TextStyle subHeaderStyle = TextStyle(
+  fontFamily: GoogleFonts.oswald().fontFamily,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
 TextStyle bodyStyle = TextStyle(
   fontFamily: GoogleFonts.oswald().fontFamily,
   fontSize: 16,

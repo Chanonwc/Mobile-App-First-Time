@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constant/my_constant.dart';
 import '../widget/Menu_profile.dart';
+import 'Home_screen.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -15,9 +16,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
   int _selectedIndex = 3;
 
   void _onItemTapped(int index) {
+    if (index == _selectedIndex) return;
     setState(() {
       _selectedIndex = index;
     });
+
+    // ถ้ากดไอคอนโฮม ให้กลับไปหน้า HomeScreen
+    if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    }
   }
 
   @override
@@ -125,27 +135,32 @@ Widget build(BuildContext context) {
                       child: Column(
                         children: [
                           MenuTile(
+                            context: context,
                             icon: Icons.edit,
                             title: "Edit Profile",
                             // isPrimary: true,
                           ),
                           const Divider(height: 1, indent: 5, endIndent: 20),
                           MenuTile(
+                            context: context,
                             icon: Icons.lock_outline,
                             title: "Add PIN",
                           ),
                           const Divider(height: 1, indent: 5, endIndent: 20),
                           MenuTile(
+                            context: context,
                             icon: Icons.settings,
                             title: "Settings",
                           ),
                           const Divider(height: 1, indent: 5, endIndent: 20),
                           MenuTile(
+                            context: context,
                             icon: Icons.people_outline,
                             title: "Invite Friends",
                           ),
                           const Divider(height: 1, indent: 5, endIndent: 20),
                           MenuTile(
+                            context: context,
                             icon: Icons.logout,
                             title: "Logout",
                             isLogout: true,

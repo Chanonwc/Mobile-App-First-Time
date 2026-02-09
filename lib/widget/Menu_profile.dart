@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:webboradkakkak/screen/login_screen.dart';
 import '../constant/my_constant.dart';
 
 
@@ -6,8 +8,7 @@ import '../constant/my_constant.dart';
 
 
 Widget MenuTile({
-
-
+    required BuildContext context,
     required IconData icon,
     required String title,
     bool isPrimary = false,
@@ -36,8 +37,18 @@ Widget MenuTile({
           size: 14,
           color: isPrimary ? Colors.white : Colors.grey,
         ),
-        onTap: () {
-          // ใส่ Logic การเปลี่ยนหน้าตรงนี้
+        onTap: () async {
+          if (isLogout) {
+            try {
+              await FirebaseAuth.instance.signOut();
+            } catch (_) {}
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
+            return;
+          }
+          // ใส่ Logic การเปลี่ยนหน้าตรงนี้ สำหรับเมนูอื่นๆ
         },
       ),
     );

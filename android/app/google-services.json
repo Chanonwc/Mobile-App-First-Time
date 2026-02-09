@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "915479593997",
+    "project_id": "flutter-app-bdb44",
+    "storage_bucket": "flutter-app-bdb44.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915479593997:android:05e2f555d7e8699b064144",
+        "android_client_info": {
+          "package_name": "com.example.webboradkakkak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjXWw7K-jVjU1tWxIMK-nydbQ1OzfdKrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

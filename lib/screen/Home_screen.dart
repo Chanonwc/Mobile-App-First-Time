@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constant/my_constant.dart';
 import '../widget/Menu_profile.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,9 +15,18 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
+    if (index == _selectedIndex) return;
     setState(() {
       _selectedIndex = index;
     });
+
+    // ถ้ากดไอคอนโปรไฟล์ ให้ไปหน้า ProfileScreen
+    if (index == 3) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const ProfileScreen()),
+      );
+    }
   }
 
   @override
@@ -101,22 +111,34 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text("Standings", style: headerStyle),
                 const SizedBox(width: 16),
-                standingRow(1, "FC Barcelona", 45),
+                standingRow(1, "FC Barcelona", 54),
                 const Divider(
                   color: Colors.white12,
                   height: 1,
                   indent: 5,
                   endIndent: 15,
                 ),
-                standingRow(2, "Real Madrid", 42),
+                standingRow(2, "Real Madrid", 51),
                 const Divider(
                   color: Colors.white12,
                   height: 1,
                   indent: 5,
                   endIndent: 15,
                 ),
-                standingRow(3, "Atletico Madrid", 38),
+                standingRow(3, "Atletico Madrid", 44),
                 const Divider(
+                  color: Colors.white12,
+                  height: 1,
+                  indent: 5,
+                  endIndent: 15,
+                ),
+                standingRow(4, "Villarreal", 41),const Divider(
+                  color: Colors.white12,
+                  height: 1,
+                  indent: 5,
+                  endIndent: 15,
+                ),
+                 standingRow(5, "Espanyol", 34),const Divider(
                   color: Colors.white12,
                   height: 1,
                   indent: 5,
